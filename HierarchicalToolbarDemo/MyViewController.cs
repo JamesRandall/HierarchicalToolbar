@@ -24,7 +24,7 @@ namespace HierarchicalToolbarDemo
 
             Toolbar toolbar = new Toolbar(View, new Definition
                                                     {
-                                                        Alignment = Definition.ToolbarAlignmentEnum.Right,
+                                                        Alignment = Definition.ToolbarAlignmentEnum.Top,
                                                         PrimaryItems = new List<ToolbarItem>
                                                                         {
                                                                             new SimpleButtonItem
@@ -33,9 +33,12 @@ namespace HierarchicalToolbarDemo
                                                                                     Image = "circle.png",
                                                                                     PrimaryItems = new List<ToolbarItem>
                                                                                                        {
-                                                                                                           new SimpleButtonItem
+                                                                                                           new ImageToggleButtonItem
                                                                                                                {
-                                                                                                                   Image="circle.png"
+                                                                                                                   SelectedImage="bluecircle.png",
+								 																				   UnselectedImage="circle.png",
+																											       Selected=true,
+																												   Tapped = (tb, tbi) => _button.SetTitle (((ImageToggleButtonItem)tbi).Selected ? "Selected" : "Not selected", UIControlState.Normal)
                                                                                                                },
                                                                                                             new SimpleButtonItem
                                                                                                                 {

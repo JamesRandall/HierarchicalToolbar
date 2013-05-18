@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPad.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AccidentalFish.HierarchicalToolbar.iOS/ItemViews/TextToggleButtonView.cs">
+    <Files>
+      <File FileName="HierarchicalToolbarDemo/MyViewController.cs" Line="1" Column="1" />
+      <File FileName="HierarchicalToolbarDemo/Main.cs" Line="17" Column="52" />
+      <File FileName="HierarchicalToolbarDemo/AppDelegate.cs" Line="6" Column="23" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/Toolbar.cs" Line="14" Column="6" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/FluentAnimate.cs" Line="6" Column="17" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/ColorExtensions.cs" Line="1" Column="1" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/ItemViews/ImageButtonView.cs" Line="10" Column="22" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/ItemViews/IToolbarView.cs" Line="1" Column="1" />
+      <File FileName="AccidentalFish.HierarchicalToolbar.iOS/ItemViews/TextToggleButtonView.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

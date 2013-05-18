@@ -11,14 +11,15 @@ namespace AccidentalFish.HierarchicalToolbar.iOS.ItemViews
         private readonly UIImage _unselectedImage;
         private bool _isTouched;
         
-        public ImageToggleButtonView(ImageToggleButtonItem item)
+		public ImageToggleButtonView(ImageToggleButtonItem item) : base(UIImage.FromBundle(item.Selected ? item.SelectedImage : item.UnselectedImage))
         {
             UserInteractionEnabled = true;
             _item = item;
-            _selectedImage = UIImage.FromBundle(item.SelectedImage);
-            _unselectedImage = UIImage.FromBundle(item.UnselectedImage);
+            _selectedImage = item.Selected ? Image : UIImage.FromBundle(item.SelectedImage);
+            _unselectedImage = item.Selected ? UIImage.FromBundle(item.UnselectedImage) : Image;
 
-            _item.PropertyChanged += ItemPropertyChanged;
+			UpdateVisuals ();
+			_item.PropertyChanged += ItemPropertyChanged;
         }
 
         protected override void Dispose(bool disposing)
@@ -53,6 +54,8 @@ namespace AccidentalFish.HierarchicalToolbar.iOS.ItemViews
 				Alpha = 1.0f;
 			    _isTouched = false;
                 _item.Selected = !_item.Selected;
+
+				if (ToolbarItemTapped != null) ToolbarItemTapped(this, _item);
 			}
 		}
 		

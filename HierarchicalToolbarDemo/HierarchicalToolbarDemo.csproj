@@ -82,8 +82,12 @@
   <ItemGroup>
     <Compile Include="MyViewController.cs" />
     <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default@2x.png" />
-    <BundleResource Include="Resources\Default-568h@2x.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\redcircle.png" />
+    <BundleResource Include="Resources\redcircle%402x.png" />
+    <BundleResource Include="Resources\bluecircle.png" />
+    <BundleResource Include="Resources\bluecircle%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\circle%402x.png" />
@@ -101,11 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccidentalFish.HierarchicalToolbar.iOS\AccidentalFish.HierarchicalToolbar.iOS.csproj">
-      <Project>{f0745102-d228-4763-81ac-0afe5c5f2b39}</Project>
+      <Project>{F0745102-D228-4763-81AC-0AFE5C5F2B39}</Project>
       <Name>AccidentalFish.HierarchicalToolbar.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccidentalFish.HierarchicalToolbar\AccidentalFish.HierarchicalToolbar.csproj">
-      <Project>{a1358d8a-2d4f-496d-aadd-d5c5224c5c82}</Project>
+      <Project>{A1358D8A-2D4F-496D-AADD-D5C5224C5C82}</Project>
       <Name>AccidentalFish.HierarchicalToolbar</Name>
     </ProjectReference>
   </ItemGroup>
