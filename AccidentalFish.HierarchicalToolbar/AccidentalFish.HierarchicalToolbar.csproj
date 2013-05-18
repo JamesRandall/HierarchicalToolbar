@@ -76,7 +76,6 @@
   <ItemGroup>
     <Compile Include="Definition.cs" />
     <Compile Include="HSLColor.cs" />
-    <Compile Include="Items\Delegates.cs" />
     <Compile Include="Items\FixedSpacer.cs" />
     <Compile Include="Items\ImageToggleButtonItem.cs" />
     <Compile Include="Items\SimpleButtonItem.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="ToolbarEventArgs.cs" />
     <Compile Include="ToolbarItem.cs" />
     <Compile Include="ToolbarItemBase.cs" />
-    <Compile Include="ToolbarMargins.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
