@@ -40,6 +40,7 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
             _parentView = parentView;
 
             Frame = _definition.IsVisible ? GetVisibleFrame() : GetHiddenFrame();
+            Hidden = !_definition.IsVisible;
             SetAutoResizingMask();
             BackgroundColor = _definition.BackgroundColor.UIColor();
             RecursivelyFindIds(definition);
@@ -162,6 +163,9 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
                 case Definition.ToolbarAlignmentEnum.Top:
                     return new RectangleF(parentBounds.X, parentBounds.Y, parentBounds.Width, _definition.Breadth);
 
+                case Definition.ToolbarAlignmentEnum.Middle:
+                    return new RectangleF(parentBounds.X, parentBounds.Y + parentBounds.Height / 2 - _definition.Breadth / 2, parentBounds.Width, _definition.Breadth);
+
                 case Definition.ToolbarAlignmentEnum.Left:
                     return new RectangleF(parentBounds.X, parentBounds.Y, _definition.Breadth, parentBounds.Height);
 
@@ -181,6 +185,9 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
             {
                 case Definition.ToolbarAlignmentEnum.Top:
                     return new RectangleF(parentBounds.X, parentBounds.Y - _definition.Breadth, parentBounds.Width, _definition.Breadth);
+
+                case Definition.ToolbarAlignmentEnum.Middle:
+                    return new RectangleF(parentBounds.Width, parentBounds.Y + parentBounds.Height / 2 - _definition.Breadth / 2, parentBounds.Width, _definition.Breadth);
 
                 case Definition.ToolbarAlignmentEnum.Left:
                     return new RectangleF(parentBounds.X - _definition.Breadth, parentBounds.Y, _definition.Breadth, parentBounds.Height);

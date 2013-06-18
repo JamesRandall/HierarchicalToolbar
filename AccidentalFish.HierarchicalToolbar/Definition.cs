@@ -9,7 +9,8 @@
             Top,
             Left,
             Right,
-            Bottom
+            Bottom,
+            Middle
         };
 
         public Definition()

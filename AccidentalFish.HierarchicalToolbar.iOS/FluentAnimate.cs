@@ -5,7 +5,7 @@ using MonoTouch.UIKit;
 
 namespace AccidentalFish.UIKit
 {
-    public interface IFluentAnimateTail
+    internal interface IFluentAnimateTail
     {
         IFluentAnimateTail Repeat();
         IFluentAnimateTail AllowUserInteraction();
@@ -13,7 +13,7 @@ namespace AccidentalFish.UIKit
         void Start();
     }
 
-    public interface IFluentAnimate : IFluentAnimateTail
+    internal interface IFluentAnimate : IFluentAnimateTail
     {
         IFluentAnimate Then { get; }
         IFluentAnimate Do(Action action);
@@ -29,7 +29,7 @@ namespace AccidentalFish.UIKit
         IFluentAnimate EaseInOut(Action action);
     }
 
-    public class FluentAnimate : IFluentAnimate
+    internal class FluentAnimate : IFluentAnimate
     {
         private struct Animation
         {
