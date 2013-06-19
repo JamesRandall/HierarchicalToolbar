@@ -213,6 +213,10 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
                     AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin;
                     break;
 
+                case Definition.ToolbarAlignmentEnum.Middle:
+                    AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin;
+                    break;
+
                 case Definition.ToolbarAlignmentEnum.Left:
                     AutoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin;
                     break;
@@ -397,14 +401,46 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
         private void CreatePrimaryViews(ToolbarItemBase toolbar)
         {
             float offset = _definition.ItemSpacing;
+            float width = 0;
             foreach (ToolbarItem item in toolbar.PrimaryItems)
             {
                 UIView toolbarUiView = CreateToolbarView(item);
                 toolbarUiView.Frame = ToolbarItemRectangle(offset, toolbarUiView);
+                if (IsHorizontal)
+                {
+                    UIViewAutoresizing resizeMask = UIViewAutoresizing.FlexibleRightMargin;
+                    switch (_definition.PrimaryItemAlignment)
+                    {
+                        case Definition.ToolbarAlignmentEnum.Middle:
+                            resizeMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin;
+                            break;
+
+                        case Definition.ToolbarAlignmentEnum.Right:
+                            resizeMask = UIViewAutoresizing.FlexibleLeftMargin;
+                            break;
+                    }
+                    toolbarUiView.AutoresizingMask = resizeMask;
+                }
+                
                 AddSubview(toolbarUiView);
                 _currentPrimaryViews.Add(toolbarUiView);
 
                 offset += (IsHorizontal ? toolbarUiView.Frame.Width : toolbarUiView.Frame.Height) + _definition.ItemSpacing;
+                width += toolbarUiView.Frame.Width + _definition.ItemSpacing;
+            }
+
+            width -= _definition.ItemSpacing;
+            if (IsHorizontal && _definition.PrimaryItemAlignment == Definition.ToolbarAlignmentEnum.Middle)
+            {
+                offset = Bounds.Size.Width/2 - width/2;
+                foreach (UIView view in _currentPrimaryViews)
+                {
+                    RectangleF frame = view.Frame;
+                    frame.X = offset;
+                    view.Frame = frame;
+
+                    offset += frame.Width + _definition.ItemSpacing;
+                }
             }
             
         }
@@ -485,7 +521,8 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
             get
             {
                 return _definition.Alignment == Definition.ToolbarAlignmentEnum.Top ||
-                       _definition.Alignment == Definition.ToolbarAlignmentEnum.Bottom;
+                       _definition.Alignment == Definition.ToolbarAlignmentEnum.Bottom ||
+                       _definition.Alignment == Definition.ToolbarAlignmentEnum.Middle;
             }
         }
     }

@@ -21,6 +21,7 @@
             BackgroundColor = new RGBColor(0xf45f00);
             ItemSpacing = 12.0f;
             Breadth = 44.0f + ItemSpacing*2;
+            PrimaryItemAlignment = ToolbarAlignmentEnum.Left;
         }
 
         public ToolbarAlignmentEnum Alignment { get; set; }
@@ -30,6 +31,8 @@
         public float ItemSpacing { get; set; }
 
         public float Breadth { get; set; }
+
+        public ToolbarAlignmentEnum PrimaryItemAlignment { get; set; }
 
         public bool IsVisible
         {
