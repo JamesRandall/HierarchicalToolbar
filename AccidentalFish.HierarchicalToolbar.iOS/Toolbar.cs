@@ -504,13 +504,14 @@ namespace AccidentalFish.HierarchicalToolbar.iOS
         {
             if (!Hidden)
             {
+                if (ToolbarWillHide != null) ToolbarWillHide(new ToolbarEventArgs { Sender = this});
                 RectangleF newFrame = GetHiddenFrame();
                 FluentAnimate
                     .EaseInOut(_definition.AnimationDuration, () => Frame = newFrame)
                     .WhenComplete(() =>
                     {
                         Hidden = true;
-
+                        if (ToolbarDidHide != null) ToolbarDidHide(new ToolbarEventArgs {Sender = this});
                     })
                     .Start();
             }
